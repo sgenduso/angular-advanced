@@ -13,3 +13,9 @@ var PORT = 3001;
 app.listen(PORT, function () {
   console.log('Listening on localhost:', PORT);
 });
+
+app.set('view engine', 'ejs');
+app.use(morgan('tiny'));
+app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended:true}));
